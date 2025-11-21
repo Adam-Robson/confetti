@@ -1,5 +1,5 @@
 # multi-stage dockerfile for express server in monorepo
-FROM node:20-alpine AS base
+FROM node:25-alpine AS base
 
 # set working directory
 WORKDIR /app
@@ -35,7 +35,7 @@ RUN pnpm --filter client run build
 
 
 # Production image
-FROM node:20-alpine AS production
+FROM node:25-alpine AS production
 
 WORKDIR /app
 
@@ -76,7 +76,7 @@ COPY tsconfig.json ./
 RUN cd server && npx tsc --project .
 
 # production stage
-FROM node:20-alpine AS production
+FROM node:25-alpine AS production
 
 # install pnpm
 RUN npm install -g pnpm
