@@ -11,8 +11,8 @@
     "dev": "tsx src/index.ts",
     "serve": "nodemon --watch 'src/**/*.ts' --exec 'tsx src/index.ts'",
     "lint": "eslint",
-    "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
-    "test:watch": "npm run test -- --watch",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "start": "node -r dotenv/config server.js",
     "start:watch": "nodemon -r dotenv/config server.js",
     "setup-db": "node -r dotenv/config setup-db.js"
