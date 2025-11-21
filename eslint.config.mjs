@@ -52,14 +52,8 @@ export default defineConfig([
       'semi': ['error', 'always'],
       'quotes': ['error', 'single', { avoidEscape: true }],
       'indent': ['error', 2, { SwitchCase: 1 }],
-      'no-trailing-spaces': 'error',
-    },
-
-  },
-  {
-    ignores: [
-      "@typescript-eslint/no-unsafe-assignment"
-    ]
+      'no-trailing-spaces': 'error'
+    }
   }
 );
 

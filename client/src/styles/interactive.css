@@ -20,7 +20,7 @@ a, a:link, a:visited, button {
 
 .link, .btn {
   position: relative; /* pseudo underline */
-  display: inline-inline-block;
+  display: inline-block;
   line-height: 1;
   transition:
     color var(--transition-duration) var(--transition-ease),

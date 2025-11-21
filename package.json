@@ -27,7 +27,7 @@
     "test:server": "pnpm --filter @confetti/server test",
     "setup-db": "pnpm --filter @confetti/server setup-db",
     "lint": "pnpm --filter @confetti/client lint && pnpm --filter @confetti/server lint",
-    "clean": "rm -rf */dist && ;",
+    "clean": "rm -rf */dist */.next */node_modules",
     "deploy:server": "fly deploy",
     "logs:server": "fly logs"
   },
