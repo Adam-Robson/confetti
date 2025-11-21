@@ -24,7 +24,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "src"
+    "src",
+    "test/validate.test.ts"
   ],
   "exclude": [
     "node_modules",
