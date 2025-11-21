@@ -1,0 +1,56 @@
+{
+  "name": "@confetti/project-root",
+  "version": "0.1.0",
+  "description": "A Nextjs project powered by React, and Express.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:client\" \"pnpm run dev:server\"",
+    "dev:client": "pnpm --filter @confetti/client dev",
+    "dev:server": "pnpm --filter @confetti/server dev",
+    "dev:server:watch": "pnpm --filter @confetti/server start:watch",
+    "build": "pnpm run build:client && pnpm run build:server",
+    "build:client": "pnpm --filter @confetti/client build",
+    "build:server": "pnpm --filter @confetti/server build",
+    "start": "pnpm run start:client && pnpm run start:server",
+    "start:client": "pnpm --filter @confetti/client start",
+    "start:server": "pnpm --filter @confetti/server start:prod",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ci": "vitest --run",
+    "test:client": "pnpm --filter @confetti/client test",
+    "test:server": "pnpm --filter @confetti/server test",
+    "setup-db": "pnpm --filter @confetti/server setup-db",
+    "lint": "pnpm --filter @confetti/client lint && pnpm --filter @confetti/server lint",
+    "clean": "rm -rf */dist */.next */node_modules",
+    "deploy:server": "fly deploy",
+    "logs:server": "fly logs"
+  },
+  "author": "Adam Robson",
+  "files": [],
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@types/node": "24.10.1",
+    "@types/supertest": "6.0.3",
+    "concurrently": "9.2.1",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "16.5.0",
+    "jsdom": "27.1.0",
+    "prettier": "3.6.2",
+    "supertest": "7.1.4",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.3",
+    "vitest": "4.0.8"
+  },
+  "dependencies": {
+    "dotenv": "17.2.3"
+  }
+}

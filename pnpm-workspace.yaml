@@ -1,0 +1,18 @@
+
+packages:
+  - 'client'
+  - 'server'
+
+catalogs:
+  react19:
+    react: ^19.0.0
+    react-dom: ^19.0.0
+
+  next16:
+    next: ^16.0.0
+
+  express5:
+    express: ^5.0.0
+
+  typescript5:
+    typescript: ^5.0.0
