@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Barlow } from 'next/font/google';
-import '../styles/globals.css';
-import '../styles/colors.css';
+import '@/lib/styles/globals.css';
+import '@/lib/styles/colors.css';
+import '@/lib/styles/clicks.css';
 
 const barlow = Barlow({
   variable: '--barlow',
@@ -20,8 +21,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={`${barlow.variable} subpixel-antialiased`}>
-      <body><div className='root'>{children}</div></body>
+    <html lang='en' className={`
+    ${barlow.variable} 
+    subpixel-antialiased
+  `}>
+      <body>
+        <div className='root'>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

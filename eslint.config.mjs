@@ -40,7 +40,7 @@ export default defineConfig([
   {
     rules: {
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
-      'max-len': ['error', { code: 75, ignoreComments: true }],
+      'max-len': ['error', { code: 80, ignoreComments: true }],
       'no-unused-vars': 'off',
       'prefer-const': 'error',
       'eqeqeq': ['error', 'always'],
@@ -52,7 +52,8 @@ export default defineConfig([
       'semi': ['error', 'always'],
       'quotes': ['error', 'single', { avoidEscape: true }],
       'indent': ['error', 2, { SwitchCase: 1 }],
-      'no-trailing-spaces': 'error'
+      'no-trailing-spaces': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'off'
     }
   }
 );
