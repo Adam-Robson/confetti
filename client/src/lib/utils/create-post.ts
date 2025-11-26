@@ -1,8 +1,12 @@
-import type { PostFormData, PostApiResponse } from '@/lib/types/posts';
+import type { PostFormData, PostApiResponse } from '@/lib/types/post';
 
 async function createPost(
   postData: PostFormData
 ): Promise<PostApiResponse> {
+  if (typeof postData !== 'object') {
+    throw new Error('Invalid post data provided'
+    );
+  }
   try {
     const res = await fetch('/api/v1/posts', {
       method: 'POST',

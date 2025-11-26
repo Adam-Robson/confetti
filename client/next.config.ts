@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  async rewrites() {
+  rewrites() {
     // Only proxy in development - in production, frontend will call API directly
     if (process.env.NODE_ENV === 'development') {
       return [

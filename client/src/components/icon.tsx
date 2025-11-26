@@ -1,4 +1,4 @@
-import type { IconInstanceType } from '@/lib/types/icons';
+import type { IconInstanceType } from '@/lib/types/icon';
 import { ICONS } from '@/app/constants/icons';
 import clsx from 'clsx';
 
@@ -10,7 +10,7 @@ export default function Icon({
   className,
   ...rest
 }: IconInstanceType) {
-  const IconInstance = ICONS[name];
+  const IconInstance = ICONS[name as keyof typeof ICONS];
   const a11yProps = label
     ? ({ role: 'img', 'aria-label': label } as const)
     : ({ 'aria-hidden': true } as const);

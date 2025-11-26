@@ -32,3 +32,9 @@ export interface UsePostReturn {
   setTags: (tags: string[]) => void;
   handleSubmit: (e: FormEvent) => Promise<void>;
 }
+
+export interface PostApiResponse {
+  success: boolean;
+  data: PostType;
+  error?: string;
+}
