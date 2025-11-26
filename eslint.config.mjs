@@ -55,6 +55,14 @@ export default defineConfig([
       'no-trailing-spaces': 'error',
       '@typescript-eslint/no-unsafe-assignment': 'off'
     }
+  },
+  {
+    ignores: [
+      'postcss.config.mjs',
+      '*.config.*',
+      'node_modules',
+      'dist'
+    ]
   }
 );
 
