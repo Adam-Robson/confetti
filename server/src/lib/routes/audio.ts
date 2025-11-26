@@ -2,8 +2,13 @@
 audioRouter.get('/audio', async (req, res) => {
   try {
     const db = pool as unknown as Pool;
-    const result = await db.query('SELECT * FROM songs ORDER BY track_number ASC');
-    res.status(200).json({ success: true, songs: result.rows });
+    const result = await db.query(
+      'SELECT * FROM songs ORDER BY track_number ASC'
+    );
+    res.status(200).json({
+      success: true,
+      songs: result.rows
+    });
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ success: false, error: error.message });
