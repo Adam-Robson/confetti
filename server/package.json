@@ -10,7 +10,7 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "serve": "nodemon --watch 'src/**/*.ts' --exec 'tsx src/index.ts'",
-    "lint": "eslint",
+    "lint": "eslint 'src/**/*.{ts,js}'",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "start": "node -r dotenv/config server.js",

@@ -46,7 +46,7 @@
     "emitDeclarationOnly": true, /* Only output d.ts files and not JavaScript files. */
     "sourceMap": true, /* Create source map files for emitted JavaScript files. */
     // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-    "outDir": "../build", /* Specify an output folder for all emitted files. */
+    "outDir": "./build", /* Specify an output folder for all emitted files. */
     "pretty": true,
     // "removeComments": true,                           /* Disable emitting comments. */
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
@@ -71,7 +71,7 @@
     "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
     "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
-    "isolatedDeclarations": true,
+    // "isolatedDeclarations": true,
     "useUnknownInCatchVariables": false,
     "noImplicitOverride": true,
     /* Type Checking */

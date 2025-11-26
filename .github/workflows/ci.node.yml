@@ -47,7 +47,7 @@ jobs:
         run: pnpm install
 
       - name: Lint all workspaces
-        run: pnpm lint
+        run: pnpm --filter @confetti/client lint && pnpm --filter @confetti/server lint
 
       - name: Run all tests
         run: pnpm test:ci

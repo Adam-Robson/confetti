@@ -14,9 +14,7 @@ updates:
     commit-message:
       prefix: "chore(deps):"
       prefix-development: "chore(dev-deps):"
-    labels:
-      - "dependencies"
-      - "automated"
+
     ignore:
       # Ignore major version updates for stable dependencies
       - dependency-name: "react"
@@ -43,9 +41,7 @@ updates:
       prefix: "chore(client/deps):"
       prefix-development: "chore(client/dev-deps):"
     labels:
-      - "dependencies"
       - "client"
-      - "automated"
 
   # Server workspace dependencies
   - package-ecosystem: "npm"
@@ -62,9 +58,7 @@ updates:
       prefix: "chore(server/deps):"
       prefix-development: "chore(server/dev-deps):"
     labels:
-      - "dependencies"
       - "server"
-      - "automated"
 
   # Docker dependencies (if you have Dockerfile)
   - package-ecosystem: "docker"
@@ -80,9 +74,7 @@ updates:
     commit-message:
       prefix: "chore(docker):"
     labels:
-      - "dependencies"
       - "docker"
-      - "automated"
 
   # GitHub Actions dependencies
   - package-ecosystem: "github-actions"
@@ -98,7 +90,5 @@ updates:
     commit-message:
       prefix: "chore(actions):"
     labels:
-      - "dependencies"
       - "github-actions"
-      - "automated"
 

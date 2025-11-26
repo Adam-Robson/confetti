@@ -52,8 +52,7 @@
     --alert: var(--jasper);
     --canvas: linear-gradient(133deg,
         black 0%,
-        var(--jet) 42%,
-        black 100%);
+        var(--jet) 100%);
   }
 }
 

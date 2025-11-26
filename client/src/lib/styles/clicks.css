@@ -1,16 +1,19 @@
-:root{
-  --transition-duration: 820ms;
-  --transition-ease: cubic-bezier(.2,.9,.3,1);
+:root {
+  --duration: 820ms;
+  --ease: cubic-bezier(.2, .9, .3, 1);
   --accent: var(--flax);
-  --accent-contrast: var(--antiflash);
-  --underline-height: 2px;
-  --underline-gap: .18em;
-  --btn-padding: .45rem .8rem;
-  --btn-radius: .35rem;
+  --contrast: var(--antiflash);
+  --line-height: 2px;
+  --line-gap: .18em;
+  --pad: .45rem .8rem;
+  --radius: .35rem;
 }
 
 /* reset interactive elements */
-a, a:link, a:visited, button {
+a,
+a:link,
+a:visited,
+button {
   -webkit-tap-highlight-color: transparent;
   background: transparent;
   border: none;
@@ -18,15 +21,31 @@ a, a:link, a:visited, button {
   color: inherit;
 }
 
-.link, .btn {
-  position: relative; /* pseudo underline */
+a {
+  color: var(--text);
+  transition: color 5s var(--timing), text-decoration 5s var(--timing), transform 5s var(--timing);
+  text-decoration-thickness: 2px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary);
+  text-underline-offset: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link,
+.btn {
+  position: relative;
+  /* pseudo underline */
   display: inline-block;
   line-height: 1;
   transition:
-    color var(--transition-duration) var(--transition-ease),
-    background-color var(--transition-duration) var(--transition-ease),
-    box-shadow var(--transition-duration) var(--transition-ease),
-    transform var(--transition-duration) var(--transition-ease);
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
   will-change: color, background-color, transform;
   outline: none;
 }
@@ -37,15 +56,16 @@ a, a:link, a:visited, button {
   position: absolute;
   left: 0;
   right: 0;
-  height: var(--underline-height);
-  bottom: calc(-1 * var(--underline-gap));
-  background: currentColor; /* follow color */
+  height: var(--line-height);
+  bottom: calc(-1 * var(--line-gap));
+  background: currentColor;
+  /* follow color */
   transform-origin: left center;
   transform: scaleX(0);
   opacity: 0;
   transition:
-    transform var(--transition-duration) var(--transition-ease),
-    opacity calc(var(--transition-duration) / 2) var(--transition-ease);
+    transform var(--duration) var(--ease),
+    opacity calc(var(--duration) / 2) var(--ease);
   pointer-events: none;
 }
 
@@ -60,15 +80,15 @@ a, a:link, a:visited, button {
   align-items: center;
   justify-content: center;
   gap: .5rem;
-  padding: var(--btn-padding);
-  border-radius: var(--btn-radius);
-  border: 1px solid rgba(0,0,0,0.08);
+  padding: var(--pad);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background-color: transparent;
   color: inherit;
   cursor: pointer;
-  transition: color var(--transition-duration) var(--transition-ease),
-              background-color var(--transition-duration) var(--transition-ease),
-              box-shadow var(--transition-duration) var(--transition-ease);
+  transition: color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
 }
 
 /* hover / focus */
@@ -79,7 +99,7 @@ a, a:link, a:visited, button {
   color: var(--accent);
 }
 
-/* synchronize underline timing with color */
+/* underline sync */
 .link:hover::after,
 .link:focus-visible::after,
 .btn:hover::after,
@@ -92,7 +112,7 @@ a, a:link, a:visited, button {
 .btn.fill-on-hover:hover,
 .btn.fill-on-hover:focus-visible {
   background-size: 100% 100%;
-  color: var(--accent-contrast);
+  color: var(--contrast);
 }
 
 /* keyboard focus */
@@ -103,7 +123,9 @@ a, a:link, a:visited, button {
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  :root { --transition-duration: 0ms; }
+  :root {
+    --duration: 0ms;
+  }
 
   .link::after,
   .btn::after {
@@ -117,15 +139,17 @@ a, a:link, a:visited, button {
   }
 }
 
-/* underline via opacity only if no transition */
+/* if no transition, underline via opacity */
 @supports not (transform: scaleX(0)) {
+
   .link::after,
   .btn::after {
     width: 100%;
     transform: none;
     opacity: 0;
-    transition: opacity var(--transition-duration) var(--transition-ease);
+    transition: opacity var(--duration) var(--ease);
   }
+
   .link:hover::after,
   .btn:hover::after,
   .link:focus-visible::after,

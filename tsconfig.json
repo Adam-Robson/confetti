@@ -94,9 +94,16 @@
   // },
   "files": [],
   "include": [],
+  "exclude": [
+    "postcss.config.mjs",
+    "next.config.ts",
+    "*.config.*",
+    "node_modules",
+    "dist"
+  ],
   "references": [
     {
-      "path": "./client/tsconfig.client.json"
+      "path": "./client/tsconfig.json"
     },
     {
       "path": "./server/tsconfig.server.json"
