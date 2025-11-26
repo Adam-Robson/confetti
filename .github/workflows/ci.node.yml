@@ -47,7 +47,7 @@ jobs:
         run: pnpm install
 
       - name: Lint all workspaces
-        run: pnpm lint
+        run: pnpm lint -- 'client/src/**/*.{ts,tsx,js,jsx}' 'server/src/**/*.{ts,js}'
 
       - name: Run all tests
         run: pnpm test:ci
