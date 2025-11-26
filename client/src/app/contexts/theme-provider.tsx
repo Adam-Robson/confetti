@@ -9,7 +9,7 @@ import {
   useCallback,
   ReactNode
 } from 'react';
-import type { ThemeType, ThemeContextType } from '@/lib/types/themes';
+import type { ThemeType, ThemeContextType } from '@/lib/types/theme';
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 

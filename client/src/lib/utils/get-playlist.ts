@@ -1,85 +1,77 @@
-import type { SongType, AlbumType } from '@/lib/types/songs';
+import type { SongType } from '@/lib/types/audio';
 
 // API base URL - proxy in dev, direct in prod
-const getApiUrl = (endpoint: string) => {
+const getApiUrl = (endpoint: string): string => {
   if (process.env.NODE_ENV === 'development') {
     // dev uses the Next.js proxy rewrite to backend
     return endpoint;
   }
-  // production uses NEXT_PUBLIC_API_URI (set in Vercel)
-  const apiUrl = process.env.NEXT_PUBLIC_API_URI
-    ?? 'https://thethe.fly.dev';
+  const apiUrl = process.env.NEXT_PUBLIC_API_URI ?? 'https://thethe.fly.dev';
   return `${apiUrl}${endpoint}`;
 };
 
-// fetch playlist from database API
 async function fetchPlaylist(): Promise<SongType[]> {
   try {
-    const response = await fetch(getApiUrl('/api/songs'));
+    const response = await fetch(getApiUrl('/api/audio'));
     if (!response.ok) {
-      throw new Error(`Failed to fetch songs: ${String(response.status)}`);
+      throw new Error(`Failed to fetch songs: ${response.status.toString()}`);
     }
+    const data: unknown = await response.json();
 
-    const data = await response.json();
-    // Handle different response formats gracefully
-    const songs = data.success ? (data.data || data.songs || []) : (data.songs || data || []);
+    // Accepts multiple possible response formats
+    const isRecord = (v: unknown): v is Record<string, unknown> =>
+      typeof v === 'object' && v !== null;
 
-    return songs.map((song: Record<string, SongType>) => ({
-      id: String(song.id),
-      title: String(song.title || 'Untitled'),
-      artist: String(song.artist || 'Unknown Artist'),
-      album: String(song.album || 'Unknown Album'),
-      // prefer camelCase fields returned by the server
-      src: String(song.fileUrl || song.file_url || song.src || ''),
-      cover: String(song.coverArtUrl || song.cover_art_url || song.cover || '/images/default-album.jpg'),
-      duration: Number(song.duration) || 0,
-    }));
+    const rawSongs: unknown[] =
+      isRecord(data) && Array.isArray(data.songs)
+        ? (data.songs as unknown[])
+        : isRecord(data) && Array.isArray(data.data)
+          ? (data.data as unknown[])
+          : Array.isArray(data)
+            ? (data as unknown[])
+            : [];
+
+    return rawSongs.map((song) => {
+      const s = song as Record<string, unknown>;
+      return {
+        id: String(s.id),
+        title: String(s.title),
+        artist: String(s.artist),
+        album: String(s.album),
+        src: String(
+          s.fileUrl
+        ),
+        cover: String(
+          s.coverArtUrl
+        ),
+        duration: typeof s.duration === 'number'
+          ? s.duration
+          : Number(s.duration ?? 0) || 0,
+      } as SongType;
+    });
   } catch (error) {
     console.error('Failed to fetch playlist from API:', error);
-    // empty array as fallback - handle gracefully
     return [];
   }
 }
 
 export async function getPlaylist(): Promise<SongType[]> {
-  return await fetchPlaylist();
+  return fetchPlaylist();
 }
 
 export async function getSongsByAlbum(albumTitle: string): Promise<SongType[]> {
   const playlist = await getPlaylist();
-  return playlist.filter((song: SongType) => song.album === albumTitle);
+  return playlist.filter((song) => song.album === albumTitle);
 }
 
-export async function getSongsByArtist(artistName: string): Promise<SongType[]> {
+export async function getSongsByArtist(
+  artistName: string
+): Promise<SongType[]> {
   const playlist = await getPlaylist();
-  return playlist.filter((song: SongType) => song.artist === artistName);
+  return playlist.filter((song) => song.artist === artistName);
 }
 
 export async function findSongById(songId: string): Promise<SongType | null> {
   const playlist = await getPlaylist();
-  return playlist.find((song: SongType) => song.id === songId) || null;
-}
-
-export async function getAlbums(): Promise<AlbumType[]> {
-  try {
-    const response = await fetch(getApiUrl('/api/albums'));
-    if (!response.ok) {
-      throw new Error(`Failed to fetch albums: ${response.status}`);
-    }
-
-    const data = await response.json();
-    const albums = data.success ? (data.data || data.albums || []) : (data.albums || data || []);
-
-    return albums.map((album: Record<string, unknown>) => ({
-      id: String(album.id),
-      title: String(album.title || 'Untitled Album'),
-      artist: String(album.artist || 'Unknown Artist'),
-      cover: String(album.cover || album.cover_art_url || '/images/default-album.jpg'),
-      year: Number(album.year) || new Date().getFullYear(),
-      tracks: Number(album.tracks) || 0,
-    }));
-  } catch (error) {
-    console.error('Failed to fetch albums from API:', error);
-    return [];
-  }
+  return playlist.find((song) => song.id === songId) ?? null;
 }

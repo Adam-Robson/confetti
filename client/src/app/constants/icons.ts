@@ -1,6 +1,8 @@
 import { ComponentType } from 'react';
 import { IconProps } from '@phosphor-icons/react';
 import {
+  MinusIcon,
+  ArrowsOutSimpleIcon,
   PlayIcon,
   PauseIcon,
   SkipForwardIcon,
@@ -15,6 +17,8 @@ import {
 } from '@phosphor-icons/react';
 
 export const ICONS = {
+  MinusIcon,
+  ArrowsOutSimpleIcon,
   PlayIcon,
   PauseIcon,
   SkipForwardIcon,

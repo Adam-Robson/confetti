@@ -5,10 +5,9 @@ import {
   useEffect, useMemo, ReactNode, useCallback,
 } from 'react';
 import { Howl } from 'howler';
-import type { SongType } from '@/lib/types/songs';
+import type { SongType } from '@/lib/types/audio';
 import { getPlaylist } from '@/lib/utils/get-playlist';
 
-// ✅ Move computed values outside of effects
 function getStoredVolume(): number {
   if (typeof window === 'undefined') return 1;
   return parseFloat(localStorage.getItem('volume') ?? '1');
@@ -19,13 +18,11 @@ function getStoredTrackIndex(): number {
   return parseInt(localStorage.getItem('trackIndex') ?? '0', 10);
 }
 
-// ✅ Create a custom hook for playlist data fetching
 function usePlaylistData() {
   const [playlist, setPlaylist] = useState<SongType[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // ✅ Load playlist once on mount - this is legitimate Effect usage
   useEffect(() => {
     let cancelled = false;
 
@@ -49,7 +46,6 @@ function usePlaylistData() {
       }
     }
 
-    // call the async function without making the effect callback async
     void loadPlaylist();
 
     return () => {
@@ -60,7 +56,6 @@ function usePlaylistData() {
   return { playlist, setPlaylist, loading, error };
 }
 
-// ✅ Create a custom hook for Howl management
 function useHowlPlayer() {
   const soundRef = useRef<Howl | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -71,7 +66,6 @@ function useHowlPlayer() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // ✅ Initialize volume from localStorage during render, not in Effect
   const [volume, setVolume] = useState(() => getStoredVolume());
   const [muted, setMuted] = useState(false);
 

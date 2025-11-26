@@ -96,7 +96,7 @@
   "include": [],
   "references": [
     {
-      "path": "./client/tsconfig.client.json"
+      "path": "./client/tsconfig.json"
     },
     {
       "path": "./server/tsconfig.server.json"

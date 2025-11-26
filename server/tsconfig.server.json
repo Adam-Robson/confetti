@@ -15,6 +15,11 @@
       "node",
       "vitest"
     ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import generateExcerpt from '@/lib/utils/generate-excerpt';
 import { createPost } from '@/lib/utils/create-post';
-import type { PostFormData } from '@/lib/types/posts';
+import type { PostFormData } from '@/lib/types/post';
 
 export default function NewWritePage() {
   const router = useRouter();

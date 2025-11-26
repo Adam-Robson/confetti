@@ -1,8 +1,9 @@
 'use client';
 import { useTheme } from '@/app/contexts/theme-provider';
 import Icon from '@/components/icon';
+import type { JSX } from 'react';
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch(): JSX.Element {
   const { theme, setTheme: handleSetTheme } = useTheme();
 
   return (
@@ -10,7 +11,7 @@ export default function ThemeSwitch() {
       onClick={() => {
         handleSetTheme(theme === 'light' ? 'dark' : 'light');
       }}
-      className="theme-switch btn"
+      className="theme-switch h-10 w-10"
       aria-label={`
         Switch to ${theme === 'light' ? 'dark' : 'light'} theme
       `}
