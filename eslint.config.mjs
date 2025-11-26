@@ -36,6 +36,13 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
+    ignores: [
+      'postcss.config.mjs',
+      './client/postcss.config.mjs',
+      '*.config.*',
+      'node_modules/**',
+      'dist/**'
+    ]
   },
   {
     rules: {
@@ -55,14 +62,6 @@ export default defineConfig([
       'no-trailing-spaces': 'error',
       '@typescript-eslint/no-unsafe-assignment': 'off'
     }
-  },
-  {
-    ignores: [
-      'postcss.config.mjs',
-      '*.config.*',
-      'node_modules',
-      'dist'
-    ]
   }
 );
 
