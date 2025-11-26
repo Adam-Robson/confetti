@@ -1,3 +1,10 @@
+
+import express, { Router } from 'express';
+import pool from '../db/pool.js';
+import { Pool } from 'pg';
+
+const audioRouter: Router = express.Router();
+
 // Get all songs for playlist
 audioRouter.get('/audio', async (req, res) => {
   try {
@@ -17,11 +24,6 @@ audioRouter.get('/audio', async (req, res) => {
     }
   }
 });
-import express, { Router } from 'express';
-import pool from '../db/pool.js';
-import { Pool } from 'pg';
-
-const audioRouter: Router = express.Router();
 
 audioRouter.get('/audio/:artist/albums/:album/:song', async (req, res) => {
   const { artist, album, song } = req.params;

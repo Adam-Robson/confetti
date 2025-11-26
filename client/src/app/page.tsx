@@ -32,12 +32,10 @@ export default function Home(): JSX.Element {
           />
           <div className="content-inner">
             <h2 className='text-center'>Fragments bank</h2>
-            <h3>
-              I write things down on occasion, when
-              they stay with me long enough.
+            <h3>On occasion, I write. When something stays with me long enough,
+              I collect it here.
             </h3>
             <h4 className='font-medium'>
-              I collect them here.
               Feel free to explore.
             </h4>
           </div>
