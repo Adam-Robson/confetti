@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import generateExcerpt from '@/lib/utils/generate-excerpt';
-import { createPost } from '@/lib/utils/create-post';
-import type { PostFormData } from '@/lib/types/post';
+import generateExcerpt from '@/utils/generate-excerpt';
+import { createPost } from '@/utils/create-post';
+import type { PostFormData } from '@/types/post';
 
 export default function NewWritePage() {
   const router = useRouter();
@@ -115,8 +115,8 @@ export default function NewWritePage() {
           />
           <p className="mt-2 text-sm">
             {`
-              You can use Markdown 
-              formatting (# for headers, 
+              You can use Markdown
+              formatting (# for headers,
               **bold**, *italic*, etc.)`}
           </p>
         </div>

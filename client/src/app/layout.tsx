@@ -21,8 +21,8 @@ const barlow = Barlow({
 });
 
 export const metadata = {
-  title: 'Create Next App',
-  description: 'website for confetti',
+  title: 'le fog',
+  description: 'website for le fog',
 };
 
 export default function RootLayout({

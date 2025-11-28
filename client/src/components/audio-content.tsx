@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import AudioPlayer from '@/components/audio-player';
-import { useTheme } from '@/app/contexts/theme-provider';
+import { useTheme } from '@/contexts/theme-provider';
 
 import Image from 'next/image';
 

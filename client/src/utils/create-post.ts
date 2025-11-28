@@ -1,4 +1,4 @@
-import type { PostFormData, PostApiResponse } from '@/lib/types/post';
+import type { PostFormData, PostApiResponse } from '@/types/post';
 
 async function createPost(
   postData: PostFormData
@@ -25,7 +25,7 @@ async function createPost(
     if (!res.ok) {
       const errorText = await res.text();
       throw new Error(
-        `Error creating post: 
+        `Error creating post:
         ${String(res.status)} ${res.statusText}
         - ${errorText}
       `);
