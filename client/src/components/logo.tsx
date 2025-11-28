@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useTheme } from '@/app/contexts/theme-provider';
+import { useTheme } from '@/contexts/theme-provider';
 
 export default function Logo() {
   const { theme } = useTheme();
