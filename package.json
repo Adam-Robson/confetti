@@ -50,7 +50,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.12"
+    "vitest": "4.0.14"
   },
   "dependencies": {
     "dotenv": "17.2.3",
