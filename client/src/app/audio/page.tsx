@@ -1,9 +1,8 @@
 
-import '../../lib/styles/audio.css';
-import { GlobalProvider } from '../contexts/global-provider';
 import { ReactNode } from 'react';
+import { GlobalProvider } from '@/contexts/global-provider';
 import AudioContent from '@/components/audio-content';
-import '../../lib/styles/audio.css';
+import '@/styles/audio.css';
 
 export default function AudioPage({
   children

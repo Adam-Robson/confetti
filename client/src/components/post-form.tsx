@@ -1,4 +1,4 @@
-import usePost from '@/app/hooks/use-post';
+import usePost from '@/hooks/use-post';
 import { ChangeEvent } from 'react';
 
 export default function WriteForm() {

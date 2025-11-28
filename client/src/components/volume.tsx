@@ -1,6 +1,6 @@
 'use client';
 
-import { useAudio } from '@/app/contexts/audio-provider';
+import { useAudio } from '@/contexts/audio-provider';
 import Icon from '@/components/icon';
 
 export default function Volume() {
@@ -15,7 +15,11 @@ export default function Volume() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = parseFloat(e.currentTarget.value);
-    updateVolume(Math.min(1, Math.max(0, v)));
+    const newVolume = Math.min(1, Math.max(0, v));
+    if (typeof updateVolume === 'function') {
+      // Narrow the type so TypeScript knows this is callable
+      (updateVolume as (v: number) => void)(newVolume);
+    }
   };
 
   const valueText = muted

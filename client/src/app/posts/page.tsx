@@ -1,10 +1,11 @@
 'use client';
 
 import { JSX, useState, useEffect } from 'react';
-import { getClient } from '@/lib/utils/api-client';
+import { getClient } from '@/utils/api-client';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { PostType } from '@/lib/types/post';
+import type { PostType } from '@/types/post';
+import Icon from '@/components/icon';
 
 export default function PostsPage(): JSX.Element {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -54,14 +55,11 @@ export default function PostsPage(): JSX.Element {
         <Link
           href="/"
           className='
-              underline decoration-dotted
-              underline-offset-4 transition-colors
-            '
-        >
-          ← back home
-        </Link>
+            underline decoration-dotted
+            underline-offset-4 transition-colors
+          '
+        />
       </div>
-
       {loading ? (
         <div className="text-center py-12">Loading posts…</div>
       ) : error ? (
@@ -69,13 +67,13 @@ export default function PostsPage(): JSX.Element {
       ) : posts.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-lg mb-6">
-            No posts yet. Ready to share your thoughts?
+              No posts yet. Ready to share your thoughts?
           </p>
           <Link
             href="/blog/new"
             className="btn-primary"
           >
-            Write your first post
+              Write your first post
           </Link>
         </div>
       ) : (
@@ -111,7 +109,7 @@ export default function PostsPage(): JSX.Element {
                     className="text-sm transition-colors"
                     title="Delete post"
                   >
-                    ×
+                    <Icon name="XIcon" size={16} />
                   </button>
                 </div>
                 <p className="mb-4">{p.excerpt}</p>

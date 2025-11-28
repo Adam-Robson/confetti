@@ -1,6 +1,6 @@
-import { ThemeProvider } from '@/app/contexts/theme-provider';
-import { AudioProvider } from '@/app/contexts/audio-provider';
-import { IconProvider } from '@/app/contexts/icon-provider';
+import { ThemeProvider } from '@/contexts/theme-provider';
+import { AudioProvider } from '@/contexts/audio-provider';
+import { IconProvider } from '@/contexts/icon-provider';
 
 export const GlobalProvider = ({
   children

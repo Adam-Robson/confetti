@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
-import { createPost } from '@/lib/utils/create-post';
-import type { UsePostReturn, PostFormData } from '@/lib/types/post';
+import { createPost } from '@/utils/create-post';
+import type { UsePostReturn, PostFormData } from '@/types/post';
 
 export default function usePost(): UsePostReturn {
   const [title, setTitle] = useState('');

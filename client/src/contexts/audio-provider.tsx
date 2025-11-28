@@ -5,8 +5,8 @@ import {
   useEffect, useMemo, ReactNode, useCallback,
 } from 'react';
 import { Howl } from 'howler';
-import type { SongType } from '@/lib/types/audio';
-import { getPlaylist } from '@/lib/utils/get-playlist';
+import type { SongType } from '@/types/audio';
+import { getPlaylist } from '@/utils/get-playlist';
 
 function getStoredVolume(): number {
   if (typeof window === 'undefined') return 1;

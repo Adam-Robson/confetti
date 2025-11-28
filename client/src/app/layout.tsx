@@ -1,7 +1,7 @@
 import { Barlow } from 'next/font/google';
-import '@/lib/styles/globals.css';
-import '@/lib/styles/colors.css';
-import '@/lib/styles/clicks.css';
+import '@/styles/globals.css';
+import '@/styles/colors.css';
+import '@/styles/clicks.css';
 import { JSX } from 'react';
 
 const barlow = Barlow({
@@ -21,8 +21,8 @@ const barlow = Barlow({
 });
 
 export const metadata = {
-  title: 'Create Next App',
-  description: 'website for confetti',
+  title: 'le fog',
+  description: 'website for le fog',
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang='en' className={`
-    ${barlow.variable} 
+    ${barlow.variable}
     subpixel-antialiased
   `}>
       <body>

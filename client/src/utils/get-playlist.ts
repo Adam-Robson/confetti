@@ -1,4 +1,4 @@
-import type { SongType } from '@/lib/types/audio';
+import type { SongType } from '@/types/audio';
 
 // API base URL - proxy in dev, direct in prod
 const getApiUrl = (endpoint: string): string => {

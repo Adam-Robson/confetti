@@ -1,5 +1,5 @@
-import type { IconInstanceType } from '@/lib/types/icon';
-import { ICONS } from '@/app/constants/icons';
+import type { IconInstanceType } from '@/types/icon';
+import { ICONS } from '@/constants/icons';
 import clsx from 'clsx';
 
 export default function Icon({

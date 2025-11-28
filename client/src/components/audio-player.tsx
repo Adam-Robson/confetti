@@ -1,7 +1,7 @@
 
 'use client';
 import { JSX, useCallback, useMemo } from 'react';
-import { useAudio } from '@/app/contexts/audio-provider';
+import { useAudio } from '@/contexts/audio-provider';
 import PlaylistDrawer from '@/components/playlist-drawer';
 import Icon from '@/components/icon';
 import Volume from './volume';

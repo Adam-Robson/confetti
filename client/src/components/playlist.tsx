@@ -1,6 +1,6 @@
 'use client';
 import { JSX } from 'react';
-import { useAudio } from '@/app/contexts/audio-provider';
+import { useAudio } from '@/contexts/audio-provider';
 import Icon from './icon';
 
 export default function Playlist(): JSX.Element {
@@ -8,7 +8,9 @@ export default function Playlist(): JSX.Element {
   const { showPlaylist, playlist, setShowPlaylist } = useAudio();
 
   const closePlaylist = () => {
-    setShowPlaylist(false);
+    if (typeof setShowPlaylist === 'function') {
+      (setShowPlaylist as (v: boolean) => void)(false);
+    }
   };
 
   return (
