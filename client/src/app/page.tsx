@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { JSX } from 'react';
 import { GlobalProvider } from '@/contexts/global-provider';
 import ThemeSwitch from '@/components/theme-switch';
-import '@/lib/styles/home.css';
+import '@/styles/home.css';
 
 export default function Home(): JSX.Element {
   return (

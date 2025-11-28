@@ -1,5 +1,5 @@
 'use client';
-import { useTheme } from '@/app/contexts/theme-provider';
+import { useTheme } from '@/contexts/theme-provider';
 import Icon from '@/components/icon';
 import type { JSX } from 'react';
 
